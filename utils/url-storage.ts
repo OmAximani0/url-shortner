@@ -13,15 +13,18 @@ export function addUrl(id: string, url: string) {
 }
 
 export function getUrl(id: string): string | undefined {
-  return urls.get(id)["url"];
+  console.log(urls);
+  console.log(urls.has(id));
+  if (urls.has(id)) return urls.get(id)["url"];
+  return undefined;
 }
 
 setInterval(() => {
-  for(let i=0; i<ids.length; i++) {
-    let entryTime = urls.get(ids[i])['time']
-    if( (new Date().getTime() - entryTime) >= 180000) {
+  for (let i = 0; i < ids.length; i++) {
+    let entryTime = urls.get(ids[i])["time"];
+    if (new Date().getTime() - entryTime >= 180000) {
       urls.delete(ids[i]);
-      ids = ids.filter(item => ids[i] !== item)
+      ids = ids.filter((item) => ids[i] !== item);
     }
   }
 }, 10000);

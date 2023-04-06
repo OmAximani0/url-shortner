@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import shortid from "shortid";
-import urls, { addUrl, getUrl } from "@/utils/url-storage";
+import { addUrl } from "@/utils/url-storage";
 
 type ResponseData = {
   message: string;
