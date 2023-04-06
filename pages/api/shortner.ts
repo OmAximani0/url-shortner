@@ -7,6 +7,10 @@ type ResponseData = {
   message: string;
 };
 
+shortid.characters(
+  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@$"
+);
+
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
