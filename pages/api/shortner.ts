@@ -16,7 +16,7 @@ export default function handler(
       let id = shortid.generate();
       const { url } = req.body;
       addUrl(id, url);
-      return res.json({ message: String(id) });
+      return res.json({ message: String(process.env.DOMAIN + "/api/" + id) });
     } else {
       return res.status(200).json({ message: "URL not provided!" });
     }
